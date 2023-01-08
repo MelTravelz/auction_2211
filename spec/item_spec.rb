@@ -5,6 +5,9 @@ require './lib/attendee'
 RSpec.describe Item do 
   let(:item1) { Item.new('Chalkware Piggy Bank') }
   let(:item2) { Item.new('Bamboo Picture Frame') }
+  let(:item3) { Item.new('Homemade Chocolate Chip Cookies') }
+  let(:item4) { Item.new('2 Days Dogsitting') }
+  let(:item5) { Item.new('Forever Stamps') }
 
   let(:attendee1) { Attendee.new(name: 'Megan', budget: '$50') }
   let(:attendee2) { Attendee.new(name: 'Bob', budget: '$75') }

@@ -16,4 +16,12 @@ class Auction
     end
   end
   #=> ["Chalkware Piggy Bank", "Bamboo Picture Frame"]
+
+  def unpopular_items
+    @items.map do |item|
+      item if item.bids == {}
+    end.compact
+  end
+
+
 end
