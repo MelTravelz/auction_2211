@@ -15,4 +15,5 @@ class Auction
       item.name
     end
   end
+  #=> ["Chalkware Piggy Bank", "Bamboo Picture Frame"]
 end
