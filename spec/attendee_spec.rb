@@ -1,8 +1,7 @@
 require 'rspec'
-require './lib/item'
 require './lib/attendee'
 
-RSpec.describe Attendee 
+RSpec.describe Attendee do
   let(:attendee) { Attendee.new(name: 'Megan', budget: '$50') }
 
   describe "#initialize" do
@@ -15,7 +14,6 @@ RSpec.describe Attendee
       expect(attendee.budget).to eq(50)
     end
   end
-
 end
 
 
