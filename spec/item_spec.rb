@@ -12,7 +12,7 @@ RSpec.describe Item do
   let(:attendee1) { Attendee.new(name: 'Megan', budget: '$50') }
   let(:attendee2) { Attendee.new(name: 'Bob', budget: '$75') }
 
-  describe "#initialize" do
+  describe "IT1 - #initialize" do
     it "exists" do
       expect(item1).to be_instance_of(Item)
       expect(item2).to be_instance_of(Item)
@@ -24,7 +24,7 @@ RSpec.describe Item do
     end
   end
 
-  describe "tests concerning bids" do
+  describe "IT2 - tests concerning bids" do
     it "can #add_bid" do 
       item1.add_bid(attendee2, 20)
       item1.add_bid(attendee1, 22)

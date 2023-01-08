@@ -16,7 +16,7 @@ RSpec.describe Auction do
   let(:attendee2) { Attendee.new(name: 'Bob', budget: '$75') }
   let(:attendee3) { Attendee.new(name: 'Mike', budget: '$100') }
   
-  describe "#initialize" do
+  describe "IT1 - #initialize" do
     it "exists" do
       expect(auction).to be_instance_of(Auction)
     end
@@ -26,7 +26,7 @@ RSpec.describe Auction do
     end
   end
 
-  describe "tests concerning items" do
+  describe "IT1 - tests concerning items" do
     it "can #add_item to items array" do
       auction.add_item(item1)
       auction.add_item(item2)
@@ -42,7 +42,7 @@ RSpec.describe Auction do
     end
   end
 
-  describe "tests concerning bids" do
+  describe "IT2 - tests concerning bids & revenue" do
     it "can return #unpopular_items" do
       auction.add_item(item1)
       auction.add_item(item2)
@@ -59,6 +59,26 @@ RSpec.describe Auction do
       item3.add_bid(attendee2, 15)
 
       expect(auction.unpopular_items).to eq([item2, item5])
+    end
+
+    it "can return #potential_revenue" do
+      auction.add_item(item1)
+      auction.add_item(item2)
+      auction.add_item(item3)
+      auction.add_item(item4)
+      auction.add_item(item5)
+  
+      expect(item1.bids).to eq({})
+
+      item1.add_bid(attendee2, 20)
+      item1.add_bid(attendee1, 22)
+
+      expect(item1.bids).to eq({attendee2 => 20, attendee1 => 22})
+
+      item4.add_bid(attendee3, 50)
+      item3.add_bid(attendee2, 15)
+
+      expect(auction.potential_revenue).to eq(87)
     end
   end
 end

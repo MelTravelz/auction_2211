@@ -23,5 +23,20 @@ class Auction
     end.compact
   end
 
+  def potential_revenue
+    p_rev = 0
+
+    items.each do |item|
+      item.bids.each do |person, bid_amount|
+        if item.bids.count > 1
+          p_rev =+ item.bids.values.max
+        else
+          p_rev += bid_amount
+        end
+      end
+    end
+    p_rev
+    # item.current_high_bid if item.bids.count > 1 #=> 22
+  end
 
 end
