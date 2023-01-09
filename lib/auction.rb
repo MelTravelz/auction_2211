@@ -47,17 +47,22 @@ class Auction
   #returns=> [attendee2, attendee1, attendee3]
 
   def bidder_info
-    person_bid_info = Hash.new 
-    calculation = 0
+    bidders_and_info = Hash.new 
 
-    items.each do |item|
-      item.bids.each do |item_obj, bid_amount|
-        if bidders.name.include?(item_obj.name) 
-          person_bid_info[item_obj.name] = { :budget => (calculation += item_obj.budget), :items => item}
-        end
-      end
+    bidders.each do |person|
+      bidders_and_info[person.name] = {:budget => person.budget}
     end
-    person_bid_info
+
+    # how to get the item into the value-hash that I've created?
+    # items.each do |item|
+    #   item.bids.each do |item_obj, bid_amount|
+    #     if item_obj.name(bidders_by_name.keys) 
+    #       #
+    #     end
+    #   end
+    # end
+
+    bidders_and_info
   end
 
 end
