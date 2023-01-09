@@ -12,7 +12,7 @@ class Item
   def add_bid(attendee, bid_amount)
     bids[attendee] = bid_amount
   end
-  #=> {attendee2 => 20, attendee1 => 22}
+  #returns=> {attendee2 => 20, attendee1 => 22}
 
   def current_high_bid
     bids.values.max
